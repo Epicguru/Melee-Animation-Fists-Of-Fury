@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>AM.FoF</RootNamespace>
+  </PropertyGroup>
+  
+  <!-- References -->
+  <ItemGroup>
+    <PackageReference Include="Krafs.Publicizer" Version="2.2.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Lib.Harmony" Version="2.3.3">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="PolySharp" Version="1.14.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.5.4063"/>
+  </ItemGroup>
+  
+  <!-- Project reference to base mod -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Melee-Animation\Source\AnimationMod\AnimationMod.csproj">
+      <PrivateAssets>all</PrivateAssets>
+      <Private>false</Private>
+      <ExcludeAssets>runtime</ExcludeAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </ProjectReference>
+  </ItemGroup>
+
+  <!-- Output -->
+  <PropertyGroup>
+    <OutputPath>..\..\..\$(RimworldVersion)\Assemblies\</OutputPath>
+  </PropertyGroup>
+
+</Project>
