@@ -22,7 +22,7 @@
   
   <!-- Project reference to base mod -->
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Melee-Animation\Source\AnimationMod\AnimationMod.csproj">
+    <ProjectReference Include="..\..\..\..\Melee-Animation\Source\$(RimworldVersion)\AnimationMod\AnimationMod.csproj">
       <PrivateAssets>all</PrivateAssets>
       <Private>false</Private>
       <ExcludeAssets>runtime</ExcludeAssets>

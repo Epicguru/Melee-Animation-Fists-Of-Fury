@@ -2,13 +2,13 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FistsOfFury", "FistsOfFury\FistsOfFury.csproj", "{902420BB-8708-40D0-96CB-8F87C4FD9F1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimationMod", "..\..\..\Melee-Animation\Source\AnimationMod\AnimationMod.csproj", "{46CB624F-0C01-4551-B395-51533E0664C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimationMod", "..\..\..\Melee-Animation\Source\1.5\AnimationMod\AnimationMod.csproj", "{46CB624F-0C01-4551-B395-51533E0664C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMRetextureSupport", "..\..\..\Melee-Animation\Source\AMRetextureSupport\AMRetextureSupport.csproj", "{C2C88044-DD9F-4C44-8773-5FA7AB300AE7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMRetextureSupport", "..\..\..\Melee-Animation\Source\1.5\AMRetextureSupport\AMRetextureSupport.csproj", "{C2C88044-DD9F-4C44-8773-5FA7AB300AE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModRequestAPI", "..\..\..\Melee-Animation\Source\ModRequestAPI\ModRequestAPI.csproj", "{EB5FE095-57FB-4089-A43B-5D7178C10EB8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModRequestAPI", "..\..\..\Melee-Animation\Source\1.5\ModRequestAPI\ModRequestAPI.csproj", "{EB5FE095-57FB-4089-A43B-5D7178C10EB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModRequestAPI.Models", "..\..\..\Melee-Animation\Source\ModRequestAPI.Models\ModRequestAPI.Models.csproj", "{CF33CD2F-6A57-41DD-B7FC-AAE54706449E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModRequestAPI.Models", "..\..\..\Melee-Animation\Source\1.5\ModRequestAPI.Models\ModRequestAPI.Models.csproj", "{CF33CD2F-6A57-41DD-B7FC-AAE54706449E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MeleeAnimationBaseMod", "MeleeAnimationBaseMod", "{0A0F8909-4EA4-4689-96A9-26C4B87AD7E0}"
 EndProject

@@ -12,6 +12,7 @@
     <LangVersion>latest</LangVersion>
     <DebugType>none</DebugType>
     <Nullable>disable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
 
 </Project>
