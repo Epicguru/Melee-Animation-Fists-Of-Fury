@@ -1,0 +1,41 @@
+name: Build and run tests
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+    tags-ignore:
+      # This will ignore release versions tagged with a version identifier. We'll 
+      # use a separate workflow for them.
+      - 'v*'
+
+  pull_request:
+    branches:
+      - master
+      - develop
+
+jobs:
+  build:
+    name: Build & Test v${{ matrix.rimworld-version }}
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest]
+        rimworld-version: [1.5]
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4.1.4
+      with:
+        submodules: 'recursive'
+      
+    - name: Setup Dotnet
+      uses: actions/setup-dotnet@v4.0.0
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Build Mod
+      run: dotnet build Source/${{ matrix.rimworld-version }} --configuration Release
+
+    - name: Test Mod
+      run: dotnet test Source/${{ matrix.rimworld-version }} --configuration Release --no-build

@@ -1,0 +1,146 @@
+name: Generate Github Release Zip
+
+env:
+  # Change this to what you want your folder name to be in people's Mods/
+  # folder. It should be unique to your mod.
+  MOD_NAME: MeleeAnimationFistsOfFury
+  # These two environment variables control whether all releases created by the
+  # release job are drafts or prereleases.
+  RELEASE_DRAFT: false
+  RELEASE_PRERELEASE: false
+
+  MOD_CONTENTS: |
+    About/
+    Animations/
+    Defs/
+    Patches/
+    Languages/
+    Sounds/
+    Textures/
+    loadfolders.xml
+
+on:
+  push:
+    tags:
+      # This will only run the release workflow when it's tagged with a version
+      # tag.
+      - 'v*'
+
+jobs:
+
+  build:
+    name: Build for RW v${{ matrix.rimworld-version }}
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        # You only need one platform for building the release since the DLLs are
+        # cross-platform using mono. I chose Ubuntu because it ran the fastest
+        # for the build steps. 
+        operating-system: [ubuntu-latest]
+        rimworld-version: [1.5] # Add Rimworld version here!
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4.1.4
+      with:
+        submodules: 'recursive'
+      
+    - name: Setup Dotnet
+      uses: actions/setup-dotnet@v4.0.0
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Build Mod (RW ${{ matrix.rimworld-version }})
+      run: dotnet build Source/${{ matrix.rimworld-version }} --configuration Release
+
+    # To modify this with your own directory structure, just change the paths to 
+    # whatever you want. It will not upload any empty directories, those with only
+    # hidden files will also be excluded.
+    - name: Upload Mod Artifacts (RW ${{ matrix.rimworld-version }})
+      uses: actions/upload-artifact@v4.3.3
+      with:
+        name: build-${{ matrix.rimworld-version }}
+        retention-days: 1
+        path: |
+          ${{ matrix.rimworld-version }}/
+          ${{ env.MOD_CONTENTS }}
+          !**/.*
+        # This final path is to exclude hidden files such as .gitkeep and .DS_STORE. 
+        # I would recommend keeping it, but I don't think it will break anything if 
+        # you remove or modify it.
+
+  package:
+    name: Package
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set Environment Variables
+      # This is a special syntax for GitHub Actions that sets an environment
+      # variable. See: https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#setting-an-environment-variable
+      run: echo "MOD_PATH=$HOME/$MOD_NAME" >> $GITHUB_ENV
+    
+    - name: Create Mod Folder
+      run: mkdir -p ${{ env.MOD_PATH }}
+
+    - name: Download Mod Artifacts from Build Step
+      uses: actions/download-artifact@v4.1.7
+      with:
+        # Note that 'name' is not specified, this will cause all artifacts from this run to be downloaded.
+        merge-multiple: true # Important, this merges the different rimworld version outputs
+        path: ${{ env.MOD_PATH }}
+        
+    - name: Zip Mod
+      run: | 
+        cd $HOME
+        zip -r ./${{ env.MOD_NAME }}.zip ./${{ env.MOD_NAME }}/*
+
+    - name: Upload Mod Zip Artifact
+      uses: actions/upload-artifact@v4.3.3
+      with:
+        name: ${{ env.MOD_NAME }}
+        path: ${{ env.MOD_PATH }}.zip
+        retention-days: 5
+
+  release:
+    name: Release
+    needs: package
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get the Version
+      id: get_version
+      # This is a special syntax for GitHub Actions that sets an output
+      # variable. See: https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#setting-an-environment-variable
+      run: echo "VERSION=$(echo ${{ github.ref }} | cut -d / -f 3)" >> $GITHUB_OUTPUT
+
+    - name: Set Environment Variables
+      # This is a special syntax for GitHub Actions that sets an environment
+      # variable. See: https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#setting-an-environment-variable
+      run: echo "MOD_RELEASE=$MOD_NAME-${{ steps.get_version.outputs.VERSION }}" >> $GITHUB_ENV
+
+    - name: Download Mod Artifacts from Build Step
+      id: download_zip
+      uses: actions/download-artifact@v4.1.7
+      with:
+        name: ${{ env.MOD_NAME }}
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1.1.4
+      env:
+        GITHUB_TOKEN: ${{ secrets.CI_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: ${{ env.MOD_RELEASE }}
+        # These can be configured at the top of the workflow.
+        draft: ${{ env.RELEASE_DRAFT }}
+        prerelease: ${{ env.RELEASE_PRERELEASE }}
+    
+    - name: Upload Release Asset
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.CI_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: ${{ steps.download_zip.outputs.download-path }}/${{ env.MOD_NAME }}.zip
+        asset_name: ${{ env.MOD_RELEASE }}.zip
+        asset_content_type: application/zip
