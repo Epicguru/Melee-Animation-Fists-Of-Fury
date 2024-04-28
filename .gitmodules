@@ -1,0 +1,3 @@
+[submodule "Source/Melee-Animation"]
+	path = Source/Melee-Animation
+	url = https://github.com/Epicguru/Melee-Animation

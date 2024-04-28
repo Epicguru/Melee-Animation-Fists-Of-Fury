@@ -20,15 +20,16 @@
     <PackageReference Include="Krafs.Rimworld.Ref" Version="1.5.4063"/>
   </ItemGroup>
   
-  <!-- Project reference to base mod -->
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Melee-Animation\Source\$(RimworldVersion)\AnimationMod\AnimationMod.csproj">
+    <ProjectReference Include="..\..\Melee-Animation\Source\1.5\AnimationMod\AnimationMod.csproj">
       <PrivateAssets>all</PrivateAssets>
       <Private>false</Private>
       <ExcludeAssets>runtime</ExcludeAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </ProjectReference>
   </ItemGroup>
+  
+  <!-- Project reference to base mod -->
 
   <!-- Output -->
   <PropertyGroup>
