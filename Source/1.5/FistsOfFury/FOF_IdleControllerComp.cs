@@ -12,6 +12,7 @@ namespace AM.FoF;
 public sealed class FOF_IdleControllerComp : IdleControllerComp
 {
     private static AnimDef[][] attackAnimationsCached;
+    private static AnimDef[] flavourAnimsCached;
     
     private static IReadOnlyList<AnimDef> GetFistAttackAnimations(Rot4 direction)
     {
@@ -32,6 +33,13 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
 
         return attackAnimationsCached[direction.AsInt];
     }
+
+    private static IReadOnlyList<AnimDef> GetFistFlavourAnimations()
+    {
+        var fistsReq = new ReqInput {IsFists = true};
+        flavourAnimsCached ??= AnimDef.GetDefsOfType(AnimType.Idle).Where(d => d.idleType == IdleType.Flavour && d.Allows(fistsReq)).ToArray();
+        return flavourAnimsCached;
+    }
     
     private bool isInFistMode;
 
@@ -49,16 +57,22 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
             return true;
         }
 
-        if (!SimpleShouldBeActiveChecks(out var pawn) || !AdditionalShouldBeActiveChecks() || !pawn.def.race.Humanlike)
+        if (!SimpleShouldBeActiveChecks(out var pawn) || !AdditionalShouldBeActiveChecks())
         {
+            isInFistMode = false;
             return false;
         }
         
-        // TODO check: does have hands.
-        // Draw when drafted, or in melee combat.
-        
-        isInFistMode = true;
-        return true;
+        // Drafted?
+        bool fistsActive = pawn.def.race.Humanlike && (pawn.Drafted || pawn.IsInActiveMeleeCombat());
+        if (fistsActive)
+        {
+            isInFistMode = true;
+            return true;
+        }
+
+        isInFistMode = false;
+        return false;
     }
 
     protected override AnimDef GetMovementAnimation(ItemTweakData tweak, bool horizontal)
@@ -69,6 +83,16 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
         }
         
         return horizontal ? FOF_DefOf.AM_FOF_Idle_MoveHor : FOF_DefOf.AM_FOF_Idle_MoveVert;
+    }
+
+    protected override IReadOnlyList<AnimDef> GetFlavourAnimations(ItemTweakData tweakData)
+    {
+        if (!isInFistMode)
+        {
+            return base.GetFlavourAnimations(tweakData);
+        }
+
+        return GetFistFlavourAnimations();
     }
 
     protected override void UpdateAttackAnimation()
@@ -93,6 +117,7 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
         return GetFistAttackAnimations(pawn.Rotation);
     }
 
+    /// <inheritdoc />
     protected override void EnsureFacingOrIdle(Pawn pawn, ItemTweakData tweak)
     {
         if (!isInFistMode)
@@ -100,10 +125,17 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
             base.EnsureFacingOrIdle(pawn, tweak);
             return;
         }
+
+        var rot = pawn.Rotation;
+        bool facingSouth = rot == Rot4.South;
+        bool isBusyStance = pawn.stances.curStance is Stance_Busy { neverAimWeapon: false, focusTarg.IsValid: true };
+        var targetAnimation = (isBusyStance || !facingSouth) ? rot.IsHorizontal ? FOF_DefOf.AM_FOF_Idle_FightingHor : FOF_DefOf.AM_FOF_Idle_FightingSouth : FOF_DefOf.AM_FOF_Idle_NeutralIdle;
         
-        bool startNew = CurrentAnimation is not {IsDestroyed: false};
+        bool startNew = CurrentAnimation is not {IsDestroyed: false} || CurrentAnimation.Def != targetAnimation;
         if (startNew)
-            StartAnim(FOF_DefOf.AM_FOF_Idle_FightingHor);
+        {
+            StartAnim(targetAnimation);
+        }
     }
 
     protected override float GetPointAtTargetLerp()

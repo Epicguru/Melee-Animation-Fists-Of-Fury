@@ -67,4 +67,10 @@
     <data>FOF_Uppercut.json</data>
   </AM.AnimDef>
 
+  <!-- South attacks -->
+  <AM.AnimDef ParentName="AnimAttackSouthFOF">
+    <defName>AM_FOF_Idle_AttackSouthJab</defName>
+    <data>FOF_JabSouth.json</data>
+  </AM.AnimDef>
+
 </Defs>
