@@ -23,9 +23,9 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
         attackAnimationsCached = new AnimDef[4][];
 
         // Horizontal.
-        var hor = AnimDef.GetDefsOfType(AnimType.Idle).Where(d => d.idleType == IdleType.AttackHorizontal && d.Allows(reqArgs)).ToArray();
-        attackAnimationsCached[Rot4.EastInt] = hor;
-        attackAnimationsCached[Rot4.WestInt] = hor;
+        var horizontalAttacks = AnimDef.GetDefsOfType(AnimType.Idle).Where(d => d.idleType == IdleType.AttackHorizontal && d.Allows(reqArgs)).ToArray();
+        attackAnimationsCached[Rot4.EastInt] = horizontalAttacks;
+        attackAnimationsCached[Rot4.WestInt] = horizontalAttacks;
 
         // Vertical.
         attackAnimationsCached[Rot4.NorthInt] = AnimDef.GetDefsOfType(AnimType.Idle).Where(d => d.idleType == IdleType.AttackNorth && d.Allows(reqArgs)).ToArray();
@@ -36,7 +36,7 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
 
     private static IReadOnlyList<AnimDef> GetFistFlavourAnimations()
     {
-        var fistsReq = new ReqInput {IsFists = true};
+        var fistsReq = new ReqInput { IsFists = true };
         flavourAnimsCached ??= AnimDef.GetDefsOfType(AnimType.Idle).Where(d => d.idleType == IdleType.Flavour && d.Allows(fistsReq)).ToArray();
         return flavourAnimsCached;
     }
@@ -87,23 +87,17 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
 
     protected override IReadOnlyList<AnimDef> GetFlavourAnimations(ItemTweakData tweakData)
     {
-        if (!isInFistMode)
-        {
-            return base.GetFlavourAnimations(tweakData);
-        }
-
-        return GetFistFlavourAnimations();
+        return !isInFistMode ? base.GetFlavourAnimations(tweakData) : GetFistFlavourAnimations();
     }
 
     protected override void UpdateAttackAnimation()
     {
-        if (!isInFistMode)
-        {
-            base.UpdateAttackAnimation();
+        // No updating is needed in fist mode.
+        // The base component does stuff like hit pauses, which aren't supported by fists.
+        if (isInFistMode)
             return;
-        }
         
-        // TODO update here if necessary.
+        base.UpdateAttackAnimation();
     }
 
     protected override IReadOnlyList<AnimDef> GetAttackAnimationsFor(Pawn pawn, Thing weapon, out bool allowPauseEver)
