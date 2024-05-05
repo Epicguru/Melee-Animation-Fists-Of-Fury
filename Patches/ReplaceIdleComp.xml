@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- Replaces Melee Animation's IdleController comp for the derived version in FoF. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[@Name="BasePawn"]/comps/li/compClass[text()="AM.Idle.IdleControllerComp"]</xpath>
+    <value>
+      <compClass>AM.FoF.FOF_IdleControllerComp</compClass>
+    </value>
+  </Operation>
+
+</Patch>

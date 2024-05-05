@@ -1,0 +1,24 @@
+<Defs>
+
+  <!-- Bases -->
+  <AM.AnimDef Name="AnimIdleFOF" Abstract="True">
+    <type>Idle</type>
+    <pawnCount>1</pawnCount>
+    <idleType>Idle</idleType>
+    <weaponFilter Class="AM.Reqs.False"/>
+    <handsVisibility>
+      <li>
+        <pawnIndex>0</pawnIndex>
+        <showMainHand>true</showMainHand>
+        <showAltHand>true</showAltHand>
+      </li>
+    </handsVisibility>
+  </AM.AnimDef>
+
+  <AM.AnimDef ParentName="AnimIdleFOF">
+    <defName>AM_FOF_Idle_FightingHor</defName>
+    <data>FOF_FightingHorizontal.json</data>
+    <pointAtTarget>true</pointAtTarget>
+  </AM.AnimDef>
+
+</Defs>

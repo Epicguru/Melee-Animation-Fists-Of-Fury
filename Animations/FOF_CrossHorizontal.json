@@ -1,7 +1,7 @@
 {
-  "ExportTimeUTC": "2024-05-05T10:37:20.0707311Z",
+  "ExportTimeUTC": "2024-05-05T14:18:53.0348976Z",
   "Name": "FOF_CrossHorizontal",
-  "Length": 0.8333333,
+  "Length": 0.55,
   "Events": [],
   "Parts": [
     {
@@ -12,29 +12,20 @@
         "Transform.m_LocalPosition.x": {
           "Keyframes": [
             {
-              "value": 0.573,
-              "inWeight": 0.333333343,
-              "outWeight": 0.333333343,
-              "tangentMode": 136
-            },
-            {
-              "time": 0.283333331,
               "value": 0.511,
-              "inTangent": -0.6469569,
-              "outTangent": -0.6469569,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,
               "tangentMode": 136
             },
             {
-              "time": 0.383333325,
+              "time": 0.1,
               "value": 0.3228284,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,
               "tangentMode": 136
             },
             {
-              "time": 0.516666651,
+              "time": 0.233333334,
               "value": 0.446,
               "inTangent": 0.555936933,
               "outTangent": 0.555936933,
@@ -43,7 +34,7 @@
               "tangentMode": 136
             },
             {
-              "time": 0.8333333,
+              "time": 0.55,
               "value": 0.573,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,
@@ -62,28 +53,21 @@
               "tangentMode": 136
             },
             {
-              "time": 0.283333331,
+              "time": 0.1,
               "value": 0.25,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,
               "tangentMode": 136
             },
             {
-              "time": 0.383333325,
+              "time": 0.233333334,
               "value": 0.25,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,
               "tangentMode": 136
             },
             {
-              "time": 0.516666651,
-              "value": 0.25,
-              "inWeight": 0.333333343,
-              "outWeight": 0.333333343,
-              "tangentMode": 136
-            },
-            {
-              "time": 0.8333333,
+              "time": 0.55,
               "value": 0.25,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,
@@ -96,29 +80,20 @@
         "Transform.m_LocalPosition.z": {
           "Keyframes": [
             {
-              "value": 0.128,
-              "inWeight": 0.333333343,
-              "outWeight": 0.333333343,
-              "tangentMode": 136
-            },
-            {
-              "time": 0.283333331,
               "value": -0.007,
-              "inTangent": -0.6991305,
-              "outTangent": -0.6991305,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,
               "tangentMode": 136
             },
             {
-              "time": 0.383333325,
+              "time": 0.1,
               "value": -0.14,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,
               "tangentMode": 136
             },
             {
-              "time": 0.516666651,
+              "time": 0.233333334,
               "value": -0.108,
               "inTangent": 0.284444451,
               "outTangent": 0.284444451,
@@ -127,7 +102,7 @@
               "tangentMode": 136
             },
             {
-              "time": 0.8333333,
+              "time": 0.55,
               "value": 0.128,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,
@@ -169,45 +144,29 @@
         "Transform.m_LocalPosition.x": {
           "Keyframes": [
             {
-              "value": 0.332,
-              "inWeight": 0.333333343,
-              "outWeight": 0.333333343,
-              "tangentMode": 136
-            },
-            {
-              "time": 0.183333337,
-              "value": 0.03,
-              "inTangent": -1.14352942,
-              "outTangent": -1.14352942,
-              "inWeight": 0.333333343,
-              "outWeight": 0.333333343,
-              "tangentMode": 136
-            },
-            {
-              "time": 0.283333331,
               "value": -0.051,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,
               "tangentMode": 136
             },
             {
-              "time": 0.35,
+              "time": 0.06666667,
               "value": 0.926,
-              "inTangent": 0.989999652,
-              "outTangent": 0.989999652,
+              "inTangent": 0.989999533,
+              "outTangent": 0.989999533,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,
               "tangentMode": 136
             },
             {
-              "time": 0.416666657,
+              "time": 0.13333334,
               "value": 0.959,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,
               "tangentMode": 136
             },
             {
-              "time": 0.8333333,
+              "time": 0.55,
               "value": 0.332,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,
@@ -226,35 +185,21 @@
               "tangentMode": 136
             },
             {
-              "time": 0.183333337,
+              "time": 0.06666667,
               "value": 0.15,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,
               "tangentMode": 136
             },
             {
-              "time": 0.283333331,
+              "time": 0.13333334,
               "value": 0.15,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,
               "tangentMode": 136
             },
             {
-              "time": 0.35,
-              "value": 0.15,
-              "inWeight": 0.333333343,
-              "outWeight": 0.333333343,
-              "tangentMode": 136
-            },
-            {
-              "time": 0.416666657,
-              "value": 0.15,
-              "inWeight": 0.333333343,
-              "outWeight": 0.333333343,
-              "tangentMode": 136
-            },
-            {
-              "time": 0.8333333,
+              "time": 0.55,
               "value": 0.15,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,
@@ -267,45 +212,29 @@
         "Transform.m_LocalPosition.z": {
           "Keyframes": [
             {
-              "value": -0.05,
-              "inWeight": 0.333333343,
-              "outWeight": 0.333333343,
-              "tangentMode": 136
-            },
-            {
-              "time": 0.183333337,
-              "value": -0.087,
-              "inWeight": 0.333333343,
-              "outWeight": 0.333333343,
-              "tangentMode": 136
-            },
-            {
-              "time": 0.283333331,
               "value": -0.018,
-              "inTangent": 0.894,
-              "outTangent": 0.894,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,
               "tangentMode": 136
             },
             {
-              "time": 0.35,
+              "time": 0.06666667,
               "value": 0.062,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,
               "tangentMode": 136
             },
             {
-              "time": 0.416666657,
+              "time": 0.13333334,
               "value": 0.044,
-              "inTangent": -0.148965523,
-              "outTangent": -0.148965523,
+              "inTangent": -0.148965508,
+              "outTangent": -0.148965508,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,
               "tangentMode": 136
             },
             {
-              "time": 0.8333333,
+              "time": 0.55,
               "value": -0.05,
               "inWeight": 0.333333343,
               "outWeight": 0.333333343,

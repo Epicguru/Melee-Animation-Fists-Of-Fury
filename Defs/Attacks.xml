@@ -1,0 +1,70 @@
+<Defs>
+
+  <!-- Bases -->
+  <AM.AnimDef Name="AnimAttackHorizontalFOF" Abstract="True">
+    <type>Idle</type>
+    <pawnCount>1</pawnCount>
+    <idleType>AttackHorizontal</idleType>
+    <weaponFilter Class="AM.Reqs.MustBeFists"/>
+    <pointAtTarget>true</pointAtTarget>
+    <handsVisibility>
+      <li>
+        <pawnIndex>0</pawnIndex>
+        <showMainHand>true</showMainHand>
+        <showAltHand>true</showAltHand>
+      </li>
+    </handsVisibility>
+  </AM.AnimDef>
+
+  <AM.AnimDef Name="AnimAttackSouthFOF" Abstract="True">
+    <type>Idle</type>
+    <pawnCount>1</pawnCount>
+    <idleType>AttackSouth</idleType>
+    <weaponFilter Class="AM.Reqs.MustBeFists"/>
+    <pointAtTarget>true</pointAtTarget>
+    <handsVisibility>
+      <li>
+        <pawnIndex>0</pawnIndex>
+        <showMainHand>true</showMainHand>
+        <showAltHand>true</showAltHand>
+      </li>
+    </handsVisibility>
+  </AM.AnimDef>
+
+  <AM.AnimDef Name="AnimAttackNorthFOF" Abstract="True">
+    <type>Idle</type>
+    <pawnCount>1</pawnCount>
+    <idleType>AttackNorth</idleType>
+    <weaponFilter Class="AM.Reqs.MustBeFists"/>
+    <pointAtTarget>true</pointAtTarget>
+    <handsVisibility>
+      <li>
+        <pawnIndex>0</pawnIndex>
+        <showMainHand>true</showMainHand>
+        <showAltHand>true</showAltHand>
+      </li>
+    </handsVisibility>
+  </AM.AnimDef>
+
+  <!-- Horizontal attacks -->
+  <AM.AnimDef ParentName="AnimAttackHorizontalFOF">
+    <defName>AM_FOF_Idle_AttackHorJab</defName>
+    <data>FOF_JabHorizontal.json</data>
+  </AM.AnimDef>
+
+  <AM.AnimDef ParentName="AnimAttackHorizontalFOF">
+    <defName>AM_FOF_Idle_AttackHorCross</defName>
+    <data>FOF_CrossHorizontal.json</data>
+  </AM.AnimDef>
+
+  <AM.AnimDef ParentName="AnimAttackHorizontalFOF">
+    <defName>AM_FOF_Idle_AttackHorCrossHigh</defName>
+    <data>FOF_CrossHighHorizontal.json</data>
+  </AM.AnimDef>
+
+  <AM.AnimDef ParentName="AnimAttackHorizontalFOF">
+    <defName>AM_FOF_Idle_AttackHorUppercut</defName>
+    <data>FOF_Uppercut.json</data>
+  </AM.AnimDef>
+
+</Defs>

@@ -1,0 +1,44 @@
+<Defs>
+
+  <!-- Bases -->
+  <AM.AnimDef Name="AnimMovementHorizontalFOF" Abstract="True">
+    <type>Idle</type>
+    <pawnCount>1</pawnCount>
+    <idleType>MoveHorizontal</idleType>
+    <weaponFilter Class="AM.Reqs.False"/>
+    <handsVisibility>
+      <li>
+        <pawnIndex>0</pawnIndex>
+        <showMainHand>true</showMainHand>
+        <showAltHand>true</showAltHand>
+      </li>
+    </handsVisibility>
+  </AM.AnimDef>
+
+  <AM.AnimDef Name="AnimMovementVerticalFOF" Abstract="True">
+    <type>Idle</type>
+    <pawnCount>1</pawnCount>
+    <idleType>MoveVertical</idleType>
+    <weaponFilter Class="AM.Reqs.False"/>
+    <handsVisibility>
+      <li>
+        <pawnIndex>0</pawnIndex>
+        <showMainHand>true</showMainHand>
+        <showAltHand>true</showAltHand>
+      </li>
+    </handsVisibility>
+  </AM.AnimDef>
+
+  <!-- Horizontal -->
+  <AM.AnimDef ParentName="AnimMovementHorizontalFOF">
+    <defName>AM_FOF_Idle_MoveHor</defName>
+    <data>FOF_MoveHorizontal.json</data>
+  </AM.AnimDef>
+
+  <!-- Vertical -->
+  <AM.AnimDef ParentName="AnimMovementVerticalFOF">
+    <defName>AM_FOF_Idle_MoveVert</defName>
+    <data>FOF_MoveHorizontal.json</data>
+  </AM.AnimDef>
+
+</Defs>
