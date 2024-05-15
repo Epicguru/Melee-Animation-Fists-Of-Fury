@@ -20,14 +20,15 @@
     <defName>AM_FOF_Idle_FightingHor</defName>
     <data>FOF_FightingHorizontal.json</data>
     <pointAtTarget>true</pointAtTarget>
-    <idleType>AttackHorizontal</idleType>
+    <idleType>IdleSpecial</idleType>
   </AM.AnimDef>
 
   <AM.AnimDef ParentName="AnimIdleFOF">
     <defName>AM_FOF_Idle_FightingSouth</defName>
     <data>FOF_FightingSouth.json</data>
     <pointAtTarget>true</pointAtTarget>
-    <idleType>AttackSouth</idleType>
+    <idleType>IdleSpecial</idleType>
+    <pointAtTargetAngleOffset>-90</pointAtTargetAngleOffset>
   </AM.AnimDef>
 
   <!-- Neutral (south) idle. -->

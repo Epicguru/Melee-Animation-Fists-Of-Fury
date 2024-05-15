@@ -38,7 +38,7 @@
   <!-- Vertical -->
   <AM.AnimDef ParentName="AnimMovementVerticalFOF">
     <defName>AM_FOF_Idle_MoveVert</defName>
-    <data>FOF_MoveHorizontal.json</data>
+    <data>FOF_MoveVertical.json</data>
   </AM.AnimDef>
 
 </Defs>

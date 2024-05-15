@@ -1,4 +1,5 @@
 ﻿using System;
+using HarmonyLib;
 using JetBrains.Annotations;
 using Verse;
 
@@ -30,5 +31,14 @@ public sealed class Core : Mod
     public Core(ModContentPack content) : base(content)
     {
         Log("Hello, world!");
+
+        try
+        {
+            new Harmony(content.PackageId).PatchAll();
+        }
+        catch (Exception e)
+        {
+            Error($"Exception when Harmony patching one or more methods. Fists of Fury is probably non-functional because of this.", e);
+        }
     }
 }

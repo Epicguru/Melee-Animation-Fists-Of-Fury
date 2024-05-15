@@ -61,7 +61,7 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
         {
             isInFistMode = false;
             return false;
-        }
+        } 
         
         // Drafted?
         bool fistsActive = pawn.def.race.Humanlike && (pawn.Drafted || pawn.IsInActiveMeleeCombat());
@@ -119,13 +119,13 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
             base.EnsureFacingOrIdle(pawn, tweak);
             return;
         }
-
+        
         var rot = pawn.Rotation;
         bool facingSouth = rot == Rot4.South;
         bool isBusyStance = pawn.stances.curStance is Stance_Busy { neverAimWeapon: false, focusTarg.IsValid: true };
         var targetAnimation = (isBusyStance || !facingSouth) ? rot.IsHorizontal ? FOF_DefOf.AM_FOF_Idle_FightingHor : FOF_DefOf.AM_FOF_Idle_FightingSouth : FOF_DefOf.AM_FOF_Idle_NeutralIdle;
         
-        bool startNew = CurrentAnimation is not {IsDestroyed: false} || CurrentAnimation.Def != targetAnimation;
+        bool startNew = CurrentAnimation is not { IsDestroyed: false } || CurrentAnimation.Def != targetAnimation;
         if (startNew)
         {
             StartAnim(targetAnimation);

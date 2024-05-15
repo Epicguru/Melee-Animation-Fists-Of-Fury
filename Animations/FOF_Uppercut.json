@@ -1,11 +1,11 @@
 {
-  "ExportTimeUTC": "2024-05-05T15:16:50.3454088Z",
+  "ExportTimeUTC": "2024-05-11T10:00:45.5206988Z",
   "Name": "FOF_Uppercut",
   "Length": 0.9166667,
   "Events": [],
   "Parts": [
     {
-      "ID": 23306,
+      "ID": 23290,
       "Path": "HandB",
       "CustomName": "HandB",
       "Curves": {
@@ -160,7 +160,7 @@
       "SweepPaths": []
     },
     {
-      "ID": 23142,
+      "ID": 23138,
       "Path": "HandA",
       "CustomName": "HandA",
       "Curves": {
@@ -318,7 +318,7 @@
       "SweepPaths": []
     },
     {
-      "ID": 23822,
+      "ID": 23788,
       "Path": "BodyA",
       "CustomName": "BodyA",
       "Curves": {},
@@ -349,10 +349,10 @@
       "SweepPaths": []
     },
     {
-      "ID": 23944,
+      "ID": 23910,
       "Path": "BodyA/HeadA",
       "CustomName": "HeadA",
-      "ParentID": 23822,
+      "ParentID": 23788,
       "Curves": {},
       "DefaultValues": {
         "GameObject.m_IsActive": 1.0,
@@ -381,7 +381,7 @@
       "SweepPaths": []
     },
     {
-      "ID": 23158,
+      "ID": 23154,
       "Path": "HandGrabSparks",
       "TexturePath": "AM/HandGrabSparks",
       "Curves": {},
