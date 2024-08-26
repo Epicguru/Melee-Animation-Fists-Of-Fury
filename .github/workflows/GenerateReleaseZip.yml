@@ -122,6 +122,13 @@ jobs:
       with:
         name: ${{ env.MOD_NAME }}
 
+    # Auto-generate changelog.
+    - name: Build Changelog
+      id: github_release
+      uses: mikepenz/release-changelog-builder-action@v5
+      env:
+        GITHUB_TOKEN: ${{ secrets.CI_TOKEN }}
+
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1.1.4
@@ -130,6 +137,7 @@ jobs:
       with:
         tag_name: ${{ github.ref }}
         release_name: ${{ env.MOD_RELEASE }}
+        body: ${{ steps.github_release.outputs.changelog }}
         # These can be configured at the top of the workflow.
         draft: ${{ env.RELEASE_DRAFT }}
         prerelease: ${{ env.RELEASE_PRERELEASE }}
