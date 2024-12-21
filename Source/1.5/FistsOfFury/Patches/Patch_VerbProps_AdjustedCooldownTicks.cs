@@ -7,6 +7,10 @@ using Verse;
 
 namespace AM.FoF.Patches;
 
+/// <summary>
+/// Debug patch to adjust the cooldown of a pawn's melee attack.
+/// Used for testing purposes only, for now.
+/// </summary>
 [HarmonyPatch(typeof(VerbProperties), nameof(VerbProperties.AdjustedCooldownTicks))]
 public static class Patch_VerbProps_AdjustedCooldownTicks
 {

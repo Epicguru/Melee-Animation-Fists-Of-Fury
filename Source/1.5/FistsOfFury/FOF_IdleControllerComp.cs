@@ -8,6 +8,10 @@ using Verse;
 
 namespace AM.FoF;
 
+/// <summary>
+/// The override version of the idle controller component for Fists of Fury.
+/// This additionally handles melee combat with fists and fist-like weapons.
+/// </summary>
 [UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
 public sealed class FOF_IdleControllerComp : IdleControllerComp
 {
