@@ -1,11 +1,11 @@
 {
-  "ExportTimeUTC": "2024-05-11T10:00:45.5580167Z",
+  "ExportTimeUTC": "2024-12-21T11:46:27.5155188Z",
   "Name": "FOF_JabSouth",
   "Length": 0.8666667,
   "Events": [],
   "Parts": [
     {
-      "ID": 23788,
+      "ID": 26380,
       "Path": "BodyA",
       "CustomName": "BodyA",
       "Curves": {
@@ -34,16 +34,214 @@
           ],
           "PreWrapMode": 8,
           "PostWrapMode": 8
+        },
+        "Transform.m_LocalPosition.x": {
+          "Keyframes": [
+            {
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.116666667,
+              "value": 0.014,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.416666657,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.7,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.8666667,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            }
+          ],
+          "PreWrapMode": 8,
+          "PostWrapMode": 8
+        },
+        "Transform.m_LocalPosition.y": {
+          "Keyframes": [
+            {
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.116666667,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.416666657,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.7,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.8666667,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            }
+          ],
+          "PreWrapMode": 8,
+          "PostWrapMode": 8
+        },
+        "Transform.m_LocalPosition.z": {
+          "Keyframes": [
+            {
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.116666667,
+              "value": -0.062,
+              "inTangent": -0.220800012,
+              "outTangent": -0.220800012,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.416666657,
+              "value": -0.092,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.7,
+              "value": -0.006,
+              "inTangent": 0.0533332936,
+              "outTangent": 0.0533332936,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.8666667,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            }
+          ],
+          "PreWrapMode": 8,
+          "PostWrapMode": 8
+        },
+        "Transform.localEulerAnglesRaw.x": {
+          "Keyframes": [
+            {
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.116666667,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.416666657,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.8666667,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            }
+          ],
+          "PreWrapMode": 8,
+          "PostWrapMode": 8
+        },
+        "Transform.localEulerAnglesRaw.y": {
+          "Keyframes": [
+            {
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.116666667,
+              "value": 2.704,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.416666657,
+              "value": 0.64,
+              "inTangent": -3.413332,
+              "outTangent": -3.413332,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.8666667,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            }
+          ],
+          "PreWrapMode": 8,
+          "PostWrapMode": 8
+        },
+        "Transform.localEulerAnglesRaw.z": {
+          "Keyframes": [
+            {
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.116666667,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.416666657,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            },
+            {
+              "time": 0.8666667,
+              "inWeight": 0.333333343,
+              "outWeight": 0.333333343,
+              "tangentMode": 136
+            }
+          ],
+          "PreWrapMode": 8,
+          "PostWrapMode": 8
         }
       },
       "DefaultValues": {
         "GameObject.m_IsActive": 1.0,
-        "Transform.m_LocalPosition.x": 0.0,
-        "Transform.m_LocalPosition.y": 0.0,
-        "Transform.m_LocalPosition.z": 0.0,
-        "Transform.localEulerAnglesRaw.x": 0.0,
-        "Transform.localEulerAnglesRaw.y": 0.0,
-        "Transform.localEulerAnglesRaw.z": 0.0,
         "Transform.m_LocalScale.x": 1.0,
         "Transform.m_LocalScale.y": 1.0,
         "Transform.m_LocalScale.z": 1.0,
@@ -62,7 +260,7 @@
       "SweepPaths": []
     },
     {
-      "ID": 23138,
+      "ID": 25726,
       "Path": "HandA",
       "CustomName": "HandA",
       "Curves": {
@@ -238,7 +436,7 @@
       "SweepPaths": []
     },
     {
-      "ID": 23290,
+      "ID": 25884,
       "Path": "HandB",
       "CustomName": "HandB",
       "Curves": {
@@ -391,10 +589,10 @@
       "SweepPaths": []
     },
     {
-      "ID": 23910,
+      "ID": 26506,
       "Path": "BodyA/HeadA",
       "CustomName": "HeadA",
-      "ParentID": 23788,
+      "ParentID": 26380,
       "Curves": {},
       "DefaultValues": {
         "GameObject.m_IsActive": 1.0,
@@ -423,7 +621,7 @@
       "SweepPaths": []
     },
     {
-      "ID": 23154,
+      "ID": 25742,
       "Path": "HandGrabSparks",
       "TexturePath": "AM/HandGrabSparks",
       "Curves": {},
