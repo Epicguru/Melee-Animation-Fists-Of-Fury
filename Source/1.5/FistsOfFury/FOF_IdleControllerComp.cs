@@ -47,12 +47,28 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
     }
     
     private bool isInFistMode;
+    private float dodgeRotationOffset;
+    private float dodgeRotationVelocity;
+    private Vector2 dodgePositionOffset;
+    private Vector2 dodgePositionVelocity;
 
     public FOF_IdleControllerComp()
     {
         IsFistsOfFuryComp = true;
     }
-    
+
+    public override void CompTick()
+    {
+        base.CompTick();
+
+        dodgePositionOffset += dodgePositionVelocity;
+        dodgePositionVelocity *= 0.9f;
+        dodgePositionOffset *= 0.9f;
+        dodgeRotationOffset += dodgeRotationVelocity;
+        dodgeRotationVelocity *= 0.9f;
+        dodgeRotationOffset *= 0.9f;
+    }
+
     protected override bool ShouldBeActive(out Thing weapon)
     {
         bool baseWantsToBeActive = base.ShouldBeActive(out weapon);
@@ -148,11 +164,53 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
         return 0;
     }
 
-    public bool TryGetBodyMotion(out Vector2 positionOffset, out float rotationOffset)
+    public void AddBodyDrawOffset(ref PawnRenderer.PreRenderResults pawnDrawArgs)
     {
-        // TODO get the values;
-        positionOffset = Vector2.zero;
-        rotationOffset = 0;
-        return false;
+        if (!isInFistMode)
+            return;
+
+        if (Mathf.Abs(dodgeRotationOffset) > 0.5f || dodgePositionOffset.sqrMagnitude > 0.02f)
+        {
+            pawnDrawArgs.useCached = false;
+            pawnDrawArgs.bodyPos += dodgePositionOffset.ToVector3();
+            pawnDrawArgs.bodyAngle += dodgeRotationOffset;
+        }
+
+        Core.Log($"Get offset for {parent}:");
+        
+        // Get the body part.
+        // Anim.GetPawnBody can't be used because the pawn is not registered to the animator.
+        // Find it manually.
+        var bodyA = CurrentAnimation?.GetPart("BodyA");
+        if (bodyA == null)
+            return;
+
+        // Don't add offset if the idle type is moving.
+        if (CurrentAnimation.Def.idleType is (IdleType.MoveHorizontal or IdleType.MoveVertical))
+            return;
+
+        ref readonly var bodySnapshot = ref CurrentAnimation.GetSnapshot(bodyA);
+        pawnDrawArgs.useCached = true;
+        pawnDrawArgs.bodyPos += bodySnapshot.LocalPosition;
+        pawnDrawArgs.bodyAngle += bodySnapshot.LocalRotation.y;
+        
+        // TODO implement.
+        //pawnDrawArgs.useCached = true;
+        //pawnDrawArgs.bodyPos.x += Mathf.Sin(Time.time * 5f);
+    }
+
+    /// <summary>
+    /// Called when this pawn dodges a melee attack.
+    /// </summary>
+    public void OnMeleeDodge(Pawn attackedBy)
+    {
+        var directionFromAttacker = parent.DrawPos - attackedBy.DrawPos;
+        var directionFromAttackerFlat = directionFromAttacker.ToFlat().normalized;
+        
+        // Add dodge offset.
+        dodgePositionVelocity += directionFromAttackerFlat * 0.13f;
+        
+        bool isToRight = parent.DrawPos.x > attackedBy.DrawPos.x;
+        dodgeRotationVelocity += isToRight ? 7f : -7f;
     }
 }
