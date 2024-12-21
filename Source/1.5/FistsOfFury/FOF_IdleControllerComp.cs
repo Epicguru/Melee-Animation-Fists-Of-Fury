@@ -4,6 +4,7 @@ using AM.Idle;
 using AM.Reqs;
 using AM.Tweaks;
 using JetBrains.Annotations;
+using UnityEngine;
 using Verse;
 
 namespace AM.FoF;
@@ -145,5 +146,13 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
 
         // Always point at target.
         return 0;
+    }
+
+    public bool TryGetBodyMotion(out Vector2 positionOffset, out float rotationOffset)
+    {
+        // TODO get the values;
+        positionOffset = Vector2.zero;
+        rotationOffset = 0;
+        return false;
     }
 }

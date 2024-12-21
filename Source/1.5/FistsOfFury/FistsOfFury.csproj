@@ -18,8 +18,18 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Krafs.Rimworld.Ref" Version="1.5.4104" />
+
+    <!-- Ungodly hack to access rimworld private properties & methods -->
+    <Publicize Include="Assembly-CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="0ColourPicker">
+      <HintPath>refs\0ColourPicker.dll</HintPath>
+    </Reference>
   </ItemGroup>
   
+  <!-- Project reference to base mod -->
   <ItemGroup>
     <ProjectReference Include="..\..\Melee-Animation\Source\1.5\AnimationMod\AnimationMod.csproj">
       <PrivateAssets>all</PrivateAssets>
@@ -28,8 +38,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </ProjectReference>
   </ItemGroup>
-  
-  <!-- Project reference to base mod -->
 
   <!-- Output -->
   <PropertyGroup>
