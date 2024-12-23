@@ -1,0 +1,27 @@
+<Defs>
+
+<!-- Abstract base -->
+  <AM.AnimDef Name="AnimExecFoF" ParentName="AnimExecutionBase" Abstract="True">
+    <weaponFilter Class="AM.Reqs.MustBeFists"/>
+    <animStartWorker>AM.FoF.FoFAnimStartWorker</animStartWorker>
+    <handsVisibility>
+      <li>
+        <pawnIndex>0</pawnIndex>
+        <showMainHand>true</showMainHand>
+        <showAltHand>true</showAltHand>
+      </li>
+      <li>
+        <pawnIndex>1</pawnIndex>
+        <showMainHand>true</showMainHand>
+        <showAltHand>true</showAltHand>
+      </li>
+    </handsVisibility>
+  </AM.AnimDef>
+
+    <AM.AnimDef ParentName="AnimExecFoF">
+    <defName>AM_FOF_Execution_JabCross</defName>
+    <label>Execution: Jab Cross</label>
+    <data>FOF_Execution_JabCross.json</data>
+  </AM.AnimDef>
+
+</Defs>
