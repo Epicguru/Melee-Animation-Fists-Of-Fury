@@ -38,11 +38,14 @@ public sealed class Core : Mod
     }
     
     public static Settings Settings { get; private set; }
+    public static ModContentPack ModContentPack { get; private set; }
     
     public Core(ModContentPack content) : base(content)
     {
         Log("Hello, world!");
 
+        ModContentPack = content;
+        
         try
         {
             new Harmony(content.PackageId).PatchAll();

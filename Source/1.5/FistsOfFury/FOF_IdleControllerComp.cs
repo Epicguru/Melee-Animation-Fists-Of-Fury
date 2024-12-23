@@ -170,9 +170,5 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
         pawnDrawArgs.useCached = true;
         pawnDrawArgs.bodyPos += bodySnapshot.LocalPosition;
         pawnDrawArgs.bodyAngle += bodySnapshot.LocalRotation.y;
-        
-        // TODO implement.
-        //pawnDrawArgs.useCached = true;
-        //pawnDrawArgs.bodyPos.x += Mathf.Sin(Time.time * 5f);
     }
 }
