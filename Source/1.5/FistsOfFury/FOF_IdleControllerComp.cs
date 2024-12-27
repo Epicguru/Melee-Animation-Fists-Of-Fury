@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using AM.Idle;
@@ -24,7 +25,9 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
         if (attackAnimationsCached != null)
             return attackAnimationsCached[direction.AsInt];
 
-        var reqArgs = new ReqInput { IsFists = true};
+        var reqArgs = new ReqInput();
+        if (!reqArgs.IsFists)
+            throw new Exception("This should never happen! This is just a sanity check, something is fucked up with ReqInput.");
         attackAnimationsCached = new AnimDef[4][];
 
         // Horizontal.
@@ -41,7 +44,9 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
 
     private static IReadOnlyList<AnimDef> GetFistFlavourAnimations()
     {
-        var fistsReq = new ReqInput { IsFists = true };
+        var fistsReq = new ReqInput();
+        if (!fistsReq.IsFists)
+            throw new Exception("This should never happen! This is just a sanity check, something is fucked up with ReqInput.");
         flavourAnimsCached ??= AnimDef.GetDefsOfType(AnimType.Idle).Where(d => d.idleType == IdleType.Flavour && d.Allows(fistsReq)).ToArray();
         return flavourAnimsCached;
     }

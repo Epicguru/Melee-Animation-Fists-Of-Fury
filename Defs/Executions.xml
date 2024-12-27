@@ -18,10 +18,24 @@
     </handsVisibility>
   </AM.AnimDef>
 
-    <AM.AnimDef ParentName="AnimExecFoF">
+  <!-- Executions -->
+  <AM.AnimDef ParentName="AnimExecFoF">
     <defName>AM_FOF_Execution_JabCross</defName>
     <label>Execution: Jab Cross</label>
     <data>FOF_Execution_JabCross.json</data>
+  </AM.AnimDef>
+
+  <AM.AnimDef ParentName="AnimExecFoF">
+    <defName>AM_FOF_Execution_Suplex</defName>
+    <label>Execution: Suplex</label>
+    <data>FOF_Execution_Suplex.json</data>
+    <cellData>
+      <li>
+        <type>PawnEnd</type>
+        <position>(-1, 0)</position>
+        <pawnIndex>1</pawnIndex>
+      </li>
+    </cellData>
   </AM.AnimDef>
 
 </Defs>

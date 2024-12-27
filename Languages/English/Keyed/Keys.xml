@@ -2,5 +2,7 @@
 <LanguageData>
 
   <AM.FoF.LoadingText>Loading Fists of Fury...</AM.FoF.LoadingText>
+  <AM.FoF.ReasonCantFistExec.MissingHands>{0} has no hands!</AM.FoF.ReasonCantFistExec.MissingHands>
+  <AM.FoF.ReasonCantFistExec.NotHumanlike>{0} is not humanoid.</AM.FoF.ReasonCantFistExec.NotHumanlike>
 
 </LanguageData>
