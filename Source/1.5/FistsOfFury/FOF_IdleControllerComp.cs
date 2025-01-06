@@ -173,7 +173,7 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
 
         ref readonly var bodySnapshot = ref CurrentAnimation.GetSnapshot(bodyA);
         pawnDrawArgs.useCached = true;
-        pawnDrawArgs.bodyPos += bodySnapshot.LocalPosition;
-        pawnDrawArgs.bodyAngle += bodySnapshot.LocalRotation.y;
+        pawnDrawArgs.bodyPos += bodySnapshot.LocalPosition * Core.Settings.FightingBodyMotionScale;
+        pawnDrawArgs.bodyAngle += bodySnapshot.LocalRotation.y * Core.Settings.FightingBodyMotionScale;
     }
 }
