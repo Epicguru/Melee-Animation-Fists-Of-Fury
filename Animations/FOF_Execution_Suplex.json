@@ -1,5 +1,5 @@
 {
-  "ExportTimeUTC": "2024-12-27T15:28:00.634431Z",
+  "ExportTimeUTC": "2025-01-06T17:37:58.0669398Z",
   "Name": "FOF_Execution_Suplex",
   "Length": 5.5,
   "Events": [
@@ -18,7 +18,7 @@
   ],
   "Parts": [
     {
-      "ID": 23382,
+      "ID": 24632,
       "Path": "HandA2",
       "CustomName": "HandA2",
       "Curves": {
@@ -60,7 +60,7 @@
       "SweepPaths": []
     },
     {
-      "ID": 24146,
+      "ID": 25396,
       "Path": "HandB2",
       "CustomName": "HandB2",
       "Curves": {
@@ -102,7 +102,7 @@
       "SweepPaths": []
     },
     {
-      "ID": 24252,
+      "ID": 25502,
       "Path": "BodyA",
       "CustomName": "BodyA",
       "Curves": {
@@ -1033,7 +1033,7 @@
       "SweepPaths": []
     },
     {
-      "ID": 23732,
+      "ID": 24982,
       "Path": "HandA",
       "CustomName": "HandA",
       "Curves": {
@@ -1742,7 +1742,7 @@
       "SweepPaths": []
     },
     {
-      "ID": 23878,
+      "ID": 25128,
       "Path": "HandB",
       "CustomName": "HandB",
       "Curves": {
@@ -2455,7 +2455,7 @@
         "Transform.localEulerAnglesRaw.x": 0.0,
         "Transform.localEulerAnglesRaw.y": 0.0,
         "Transform.localEulerAnglesRaw.z": 0.0,
-        "Transform.m_LocalScale.x": 0.175000012,
+        "Transform.m_LocalScale.x": 0.175,
         "Transform.m_LocalScale.y": 0.175,
         "Transform.m_LocalScale.z": 0.175,
         "AnimatedPart.DataA": 0.0,
@@ -2474,7 +2474,7 @@
       "SweepPaths": []
     },
     {
-      "ID": 24240,
+      "ID": 25490,
       "Path": "PawnBContainer",
       "Curves": {
         "Transform.localEulerAnglesRaw.x": {
@@ -3407,10 +3407,10 @@
       "SweepPaths": []
     },
     {
-      "ID": 23600,
+      "ID": 24850,
       "Path": "PawnBContainer/BodyB",
       "CustomName": "BodyB",
-      "ParentID": 24240,
+      "ParentID": 25490,
       "Curves": {
         "PawnBody.Direction": {
           "Keyframes": [
@@ -3472,9 +3472,9 @@
       "SweepPaths": []
     },
     {
-      "ID": 23590,
+      "ID": 24840,
       "Path": "PawnBContainer/HeadContainer",
-      "ParentID": 24240,
+      "ParentID": 25490,
       "Curves": {
         "Transform.m_LocalPosition.x": {
           "Keyframes": [
@@ -3720,10 +3720,10 @@
       "SweepPaths": []
     },
     {
-      "ID": 23220,
+      "ID": 24470,
       "Path": "BodyA/HeadA",
       "CustomName": "HeadA",
-      "ParentID": 24252,
+      "ParentID": 25502,
       "Curves": {},
       "DefaultValues": {
         "GameObject.m_IsActive": 1.0,
@@ -3752,10 +3752,10 @@
       "SweepPaths": []
     },
     {
-      "ID": 24322,
+      "ID": 25572,
       "Path": "PawnBContainer/HeadContainer/HeadB",
       "CustomName": "HeadB",
-      "ParentID": 23590,
+      "ParentID": 24840,
       "Curves": {},
       "DefaultValues": {
         "GameObject.m_IsActive": 1.0,
@@ -3784,7 +3784,7 @@
       "SweepPaths": []
     },
     {
-      "ID": 23388,
+      "ID": 24638,
       "Path": "HandGrabSparks",
       "TexturePath": "AM/HandGrabSparks",
       "Curves": {},
