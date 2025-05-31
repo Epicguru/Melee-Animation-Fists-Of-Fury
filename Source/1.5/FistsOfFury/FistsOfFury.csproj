@@ -6,18 +6,18 @@
   
   <!-- References -->
   <ItemGroup>
-    <PackageReference Include="Krafs.Publicizer" Version="2.2.1">
+    <PackageReference Include="Krafs.Publicizer" Version="2.3.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Lib.Harmony" Version="2.3.3">
+    <PackageReference Include="Lib.Harmony" Version="2.3.6">
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="PolySharp" Version="1.14.1">
+    <PackageReference Include="PolySharp" Version="1.15.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.5.4104" />
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.5.4409" />
 
     <!-- Ungodly hack to access rimworld private properties & methods -->
     <Publicize Include="Assembly-CSharp" />

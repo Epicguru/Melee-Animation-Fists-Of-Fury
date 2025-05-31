@@ -1007,17 +1007,17 @@ public static class SimpleSettings
     public abstract class MemberWrapper
     {
         public string DisplayName => _displayName ??= MakeDisplayName();
-        public string Name => field?.Name ?? prop?.Name;
+        public string Name => fieldInfo?.Name ?? propInfo?.Name;
         public readonly object DefaultValue;
-        public Type MemberType => field?.FieldType ?? prop.PropertyType;
-        public Type DeclaringType => field?.DeclaringType ?? prop.DeclaringType;
+        public Type MemberType => fieldInfo?.FieldType ?? propInfo.PropertyType;
+        public Type DeclaringType => fieldInfo?.DeclaringType ?? propInfo.DeclaringType;
         public string TranslationName => $"{DeclaringType.FullName}.{Name}";
         public bool IsIExposable => MemberType.GetInterfaces().Contains(typeof(IExposable));
         public bool IsValueType => MemberType.IsValueType;
         public bool IsDefType => typeof(Def).IsAssignableFrom(MemberType);
-        public bool IsStatic => field?.IsStatic ?? prop.GetMethod.IsStatic;
+        public bool IsStatic => fieldInfo?.IsStatic ?? propInfo.GetMethod.IsStatic;
         public string NameInXML => Name;
-        public IEnumerable<Attribute> CustomAttributes => field?.GetCustomAttributes() ?? prop.GetCustomAttributes();
+        public IEnumerable<Attribute> CustomAttributes => fieldInfo?.GetCustomAttributes() ?? propInfo.GetCustomAttributes();
         public string TextBuffer = "";
         public DrawHandler OverrideDrawHandler { get; set; }
         public bool ShouldExpose { get; set; } = true;
@@ -1025,8 +1025,8 @@ public static class SimpleSettings
         public WebContentAttribute WebContent { get; protected set; }
         public string VisibleIf{ get; set; }
 
-        protected readonly FieldInfo field;
-        protected readonly PropertyInfo prop;
+        protected readonly FieldInfo fieldInfo;
+        protected readonly PropertyInfo propInfo;
         private string _displayName;
 
         protected MemberWrapper(object obj, MemberInfo member)
@@ -1034,10 +1034,10 @@ public static class SimpleSettings
             switch (member)
             {
                 case FieldInfo fi:
-                    field = fi;
+                    fieldInfo = fi;
                     break;
                 case PropertyInfo pi:
-                    prop = pi;
+                    propInfo = pi;
                     break;
                 default:
                     throw new ArgumentException(nameof(member), $"Unexpected type: {member.GetType().FullName}");
@@ -1111,17 +1111,17 @@ public static class SimpleSettings
 
         public virtual T Get<T>(object obj)
         {
-            if (field != null)
-                return (T)field.GetValue(IsStatic ? null : obj);
+            if (fieldInfo != null)
+                return (T)fieldInfo.GetValue(IsStatic ? null : obj);
 
-            return (T)prop.GetValue(IsStatic ? null : obj);
+            return (T)propInfo.GetValue(IsStatic ? null : obj);
         }
 
         public virtual T GetDefault<T>() => (T)DefaultValue;
 
         public virtual T TryGetCustomAttribute<T>() where T : Attribute
         {
-            return field != null ? field.TryGetAttribute<T>() : prop.TryGetAttribute<T>();
+            return fieldInfo != null ? fieldInfo.TryGetAttribute<T>() : propInfo.TryGetAttribute<T>();
         }
 
         public void Set(object obj, object value)
@@ -1132,13 +1132,13 @@ public static class SimpleSettings
             if (got != null && got != expected && value is IConvertible)
                 value = Convert.ChangeType(value, expected);
 
-            if (field != null)
+            if (fieldInfo != null)
             {
-                field.SetValue(IsStatic ? null : obj, value);
+                fieldInfo.SetValue(IsStatic ? null : obj, value);
                 return;
             }
 
-            prop.SetValue(IsStatic ? null : obj, value);
+            propInfo.SetValue(IsStatic ? null : obj, value);
         }
 
         public abstract void Expose(object obj);

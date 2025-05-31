@@ -5,7 +5,6 @@ using AM.Idle;
 using AM.Reqs;
 using AM.Tweaks;
 using JetBrains.Annotations;
-using UnityEngine;
 using Verse;
 
 namespace AM.FoF;
@@ -58,16 +57,16 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
         IsFistsOfFuryComp = true;
     }
 
-    protected override bool ShouldBeActive(out Thing weapon)
+    protected override bool ShouldBeActive(out Thing weapon, out bool wantsVanillaDraw)
     {
-        bool baseWantsToBeActive = base.ShouldBeActive(out weapon);
+        bool baseWantsToBeActive = base.ShouldBeActive(out weapon, out wantsVanillaDraw);
         if (baseWantsToBeActive)
         {
             isInFistMode = false;
             return true;
         }
 
-        if (!SimpleShouldBeActiveChecks(out var pawn) || !AdditionalShouldBeActiveChecks())
+        if (!SimpleShouldBeActiveChecks(out var pawn) || !AdditionalShouldBeActiveChecks(out wantsVanillaDraw))
         {
             isInFistMode = false;
             return false;
