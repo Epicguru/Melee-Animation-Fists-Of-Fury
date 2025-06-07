@@ -50,4 +50,29 @@
     <data>FOF_Execution_OverheadSmash.json</data>
   </AM.AnimDef>
 
+  <AM.AnimDef ParentName="AnimExecFoF">
+    <defName>AM_FOF_Execution_HeadTear</defName>
+    <label>Execution: Head Tear</label>
+    <data>Execution_HeadTear.json</data>
+    <!-- Does not occur naturally, instead uses the promotion system. -->
+    <relativeProbability>0</relativeProbability>
+    <promotionRules>
+      <onlyWhenOutcomeIs>Kill</onlyWhenOutcomeIs>
+      <promotionWorkers>
+        <li>AM.PromotionWorkers.MustHaveHeadPromotionWorker</li>
+      </promotionWorkers>
+    </promotionRules>
+    <!-- Spawn head upon end. -->
+    <spawnDroppedHeadsForPawnIndices>
+      <li>1</li>
+    </spawnDroppedHeadsForPawnIndices>
+    <cellData>
+      <li>
+        <type>PawnEnd</type>
+        <position>(1, 0)</position>
+        <pawnIndex>1</pawnIndex>
+      </li>
+    </cellData>
+  </AM.AnimDef>
+
 </Defs>
