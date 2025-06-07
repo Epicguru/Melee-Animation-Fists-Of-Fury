@@ -1,8 +1,13 @@
 {
-  "ExportTimeUTC": "2025-06-07T14:38:46.0281456Z",
+  "ExportTimeUTC": "2025-06-07T14:46:49.5061747Z",
   "Name": "FOF_Execution_HeadTear",
   "Length": 5.3166666,
-  "Events": [],
+  "Events": [
+    {
+      "Time": 5.3166666,
+      "Data": "KillPawn;0;1;Head;Blunt;AM_Execution_Blunt;True"
+    }
+  ],
   "Parts": [
     {
       "ID": 24218,

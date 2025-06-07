@@ -53,7 +53,7 @@
   <AM.AnimDef ParentName="AnimExecFoF">
     <defName>AM_FOF_Execution_HeadTear</defName>
     <label>Execution: Head Tear</label>
-    <data>Execution_HeadTear.json</data>
+    <data>FOF_Execution_HeadTear.json</data>
     <!-- Does not occur naturally, instead uses the promotion system. -->
     <relativeProbability>0</relativeProbability>
     <promotionRules>
