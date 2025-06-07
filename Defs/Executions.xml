@@ -38,10 +38,16 @@
     </cellData>
   </AM.AnimDef>
 
-    <AM.AnimDef ParentName="AnimExecFoF">
+  <AM.AnimDef ParentName="AnimExecFoF">
     <defName>AM_FOF_Execution_Uppercut</defName>
     <label>Execution: Uppercut</label>
     <data>FOF_Execution_Uppercut.json</data>
+  </AM.AnimDef>
+
+    <AM.AnimDef ParentName="AnimExecFoF">
+    <defName>AM_FOF_Execution_OverheadBash</defName>
+    <label>Execution: Overhead Bash</label>
+    <data>FOF_Execution_OverheadSmash.json</data>
   </AM.AnimDef>
 
 </Defs>
