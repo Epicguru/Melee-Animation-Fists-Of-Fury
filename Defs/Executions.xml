@@ -72,6 +72,10 @@
         <position>(1, 0)</position>
         <pawnIndex>1</pawnIndex>
       </li>
+      <li>
+        <type>MustBeClear</type>
+        <position>(-1, 0)</position>
+      </li>
     </cellData>
   </AM.AnimDef>
 
