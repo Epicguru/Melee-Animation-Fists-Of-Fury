@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <!-- The Rimworld major version, such as 1.5.  -->
-    <RimworldVersion>1.5</RimworldVersion>
+    <RimworldVersion>1.6</RimworldVersion>
 
     <!-- Other common properties -->
     <TargetFramework>net48</TargetFramework>
