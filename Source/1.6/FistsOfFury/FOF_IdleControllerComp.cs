@@ -120,6 +120,9 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
         return GetFistAttackAnimations(pawn.Rotation);
     }
 
+    // Looks bad, too complicated for fists to get it to work properly.
+    public override bool IsLeftHanded() => false;
+
     /// <inheritdoc />
     protected override void EnsureFacingOrIdle(Pawn pawn, ItemTweakData tweak)
     {
