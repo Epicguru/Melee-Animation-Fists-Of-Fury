@@ -4,13 +4,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FistsOfFury", "FistsOfFury\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MeleeAnimationBaseMod", "MeleeAnimationBaseMod", "{9BA975B8-EF48-4148-891A-FF01FBC5D1BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimationMod", "..\Melee-Animation\Source\1.5\AnimationMod\AnimationMod.csproj", "{C62E5E7C-DE79-4D66-B4D3-5D2A2D6E061C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimationMod", "..\Melee-Animation\Source\1.6\AnimationMod\AnimationMod.csproj", "{C62E5E7C-DE79-4D66-B4D3-5D2A2D6E061C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMRetextureSupport", "..\Melee-Animation\Source\1.5\AMRetextureSupport\AMRetextureSupport.csproj", "{27F4B716-9E27-4517-9C6F-70F14FCBAF58}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMRetextureSupport", "..\Melee-Animation\Source\1.6\AMRetextureSupport\AMRetextureSupport.csproj", "{27F4B716-9E27-4517-9C6F-70F14FCBAF58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModRequestAPI", "..\Melee-Animation\Source\1.5\ModRequestAPI\ModRequestAPI.csproj", "{536B757D-6947-48E8-BE63-73B2DD3933B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModRequestAPI", "..\Melee-Animation\Source\1.6\ModRequestAPI\ModRequestAPI.csproj", "{536B757D-6947-48E8-BE63-73B2DD3933B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModRequestAPI.Models", "..\Melee-Animation\Source\1.5\ModRequestAPI.Models\ModRequestAPI.Models.csproj", "{CA5FD3DF-DFCE-48AE-8B70-97C97A845F89}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModRequestAPI.Models", "..\Melee-Animation\Source\1.6\ModRequestAPI.Models\ModRequestAPI.Models.csproj", "{CA5FD3DF-DFCE-48AE-8B70-97C97A845F89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
