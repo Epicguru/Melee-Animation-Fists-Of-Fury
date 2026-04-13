@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/MeleeAnimationBaseMod/">
+    <Project Path="../Melee-Animation/Source/1.6/AMRetextureSupport/AMRetextureSupport.csproj" />
+    <Project Path="../Melee-Animation/Source/1.6/AnimationMod/AnimationMod.csproj" />
+    <Project Path="../Melee-Animation/Source/1.6/ModRequestAPI.Models/ModRequestAPI.Models.csproj" />
+    <Project Path="../Melee-Animation/Source/1.6/ModRequestAPI/ModRequestAPI.csproj" />
+  </Folder>
+  <Project Path="FistsOfFury/FistsOfFury.csproj" />
+</Solution>
