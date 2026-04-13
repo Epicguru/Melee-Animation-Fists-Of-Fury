@@ -11,4 +11,8 @@ public class Settings : SimpleSettingsBase
     [Percentage]
     [Range(0f, 1f)]
     public float FightingBodyMotionScale = 1f;
+
+    [Label("Enable Hand Ghost Effect")]
+    [Description("Certain animations can show a ghosting effect on hands, use this to toggle that effect.")]
+    public bool EnableHandGhosts = true;
 }

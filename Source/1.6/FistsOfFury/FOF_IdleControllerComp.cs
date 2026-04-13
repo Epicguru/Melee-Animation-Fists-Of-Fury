@@ -57,8 +57,32 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
         IsFistsOfFuryComp = true;
     }
 
+    public override bool PreDraw()
+    {
+        try
+        {
+            DrawHandTrails();
+        }
+        catch (Exception ex)
+        {
+            Core.Error($"Error drawing hand trails for pawn {parent}: {ex}");
+        }
+        
+        return base.PreDraw();
+    }
+
+    private void DrawHandTrails()
+    {
+        if (!isInFistMode || !Core.Settings.EnableHandGhosts)
+            return;
+        
+        // Placeholder draw.
+        GenDraw.DrawAimPie(parent, new LocalTargetInfo(parent.Position + new IntVec3(3, 0, 0)), 90, 0.1f);
+    }
+
     protected override bool ShouldBeActive(out Thing weapon, out bool wantsVanillaDraw)
     {
+        // If base (melee weapon mode) wants to be active, fists shouldn't.
         bool baseWantsToBeActive = base.ShouldBeActive(out weapon, out wantsVanillaDraw);
         if (baseWantsToBeActive)
         {
@@ -66,13 +90,21 @@ public sealed class FOF_IdleControllerComp : IdleControllerComp
             return true;
         }
 
+        // Other checks, checks vanilla 'don't draw weapon' as well as support for compatibility patches.
         if (!SimpleShouldBeActiveChecks(out var pawn) || !AdditionalShouldBeActiveChecks(out wantsVanillaDraw))
         {
             isInFistMode = false;
             return false;
         } 
         
-        // Drafted?
+        // If any other kind of weapon is equipped, don't draw fists.
+        if (pawn.equipment is { Primary: not null })
+        {
+            isInFistMode = false;
+            return false;
+        }
+        
+        // If drafted or in melee combat, show fists.
         bool fistsActive = pawn.def.race.Humanlike && (pawn.Drafted || pawn.IsInActiveMeleeCombat());
         if (fistsActive)
         {
